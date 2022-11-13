@@ -6,7 +6,17 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#f99e1a",
+        secondary: "#218ffe",
+        accent: "#405275",
+        "accent-light": "#43484c",
+      },
+      fontFamily: {
+        Industry: ["Industry", "sans-serif"],
+      }
+    },
   },
   plugins: [],
 }
