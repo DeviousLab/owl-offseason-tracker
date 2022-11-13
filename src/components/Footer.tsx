@@ -8,7 +8,7 @@ const Footer = () => {
 				<div className='mx-auto max-w-3xl space-y-6'>
 					<div className='flex justify-center gap-6'>
 						<Link
-							className='text-[#009AE4] hover:text-[#009AE4]/75'
+							className='text-[#218ffe] hover:text-[#218ffe]/75'
 							href='https://overwatchleague.com/'
 							target='_blank'
 							rel='noreferrer'
