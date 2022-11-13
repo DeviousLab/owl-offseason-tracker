@@ -3,8 +3,8 @@ import { FaReddit, FaGlobe, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
 	return (
-		<footer aria-label='Site Footer' className='bg-white text-center'>
-			<div className='mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8'>
+		<footer aria-label='Site Footer' className='text-center text-white bg-accent-light dark:bg-white dark:text-accent'>
+			<div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8'>
 				<div className='mx-auto max-w-3xl space-y-6'>
 					<div className='flex justify-center gap-6'>
 						<Link
