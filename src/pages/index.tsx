@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
+import { GetServerSideProps } from 'next'
 
 import Hero from '../components/Hero'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import RosterTable from '../components/RosterTable'
+import { client } from '../lib/client'
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ rosterChanges }: any) => {
   return (
     <>
       <Head>
@@ -16,9 +19,21 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <Hero />
+      <RosterTable rosterChanges={rosterChanges} />
       <Footer />
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const query = '*[_type == "rosterChanges"]';
+  const rosterChanges = await client.fetch(query);
+  console.log(rosterChanges)
+  return {
+    props: {
+      rosterChanges,
+    }
+  }
 }
 
 export default Home

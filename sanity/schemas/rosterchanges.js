@@ -39,6 +39,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'transactionDetails',
+      title: 'Transaction Details',
+      description: 'The details of the transaction',
+      type: 'text',
+    },
+    {
       name: 'reference',
       title: 'Reference',
       description: 'The reference of the roster change',
