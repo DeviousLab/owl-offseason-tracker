@@ -50,6 +50,7 @@ export default {
           { title: 'Inactive', value: 'inactive' },
           { title: 'Retired', value: 'retired' },
           { title: 'Looking For Team', value: 'lft' },
+          { title: 'Free Agent', value: 'fa' },
         ]
       }
     },
@@ -83,7 +84,8 @@ export default {
       name: 'signatureHeroes',
       title: 'Signature Heroes',
       description: 'The signature heroes of the player',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'string' }],
       options: {
         list: [
           { title: 'Ana', value: 'ana' },
@@ -122,7 +124,8 @@ export default {
           { title: 'Sojourn', value: 'sojourn' },
           { title: 'Kiriko', value: 'kiriko' },
         ],
-      }
+      },
+      validation: (Rule) => Rule.max(3),
     },
     {
       name: 'twitter',

@@ -4,6 +4,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'rosterChange',
+      title: 'Roster Change',
+      type: 'string',
+    },
+    {
       name: 'player',
       title: 'Player',
       description: 'The player who has changed teams',
@@ -32,11 +37,6 @@ export default {
       description: 'The date of the roster change',
       type: 'date',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
     },
     {
       name: 'reference',
