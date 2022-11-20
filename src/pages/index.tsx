@@ -25,10 +25,9 @@ const Home: NextPage = ({ rosterChanges }: any) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const query = '*[_type == "rosterChanges"]';
+export const getServerSideProps: GetServerSideProps = async () => {
+  const query = '*[_type == "rosterChanges"]{date, reference, rosterChange, player->{username, "formerTeam": formerTeam->{name}, "newTeam": newTeam->{name}, currentStatus},}';
   const rosterChanges = await client.fetch(query);
-  console.log(rosterChanges)
   return {
     props: {
       rosterChanges,
