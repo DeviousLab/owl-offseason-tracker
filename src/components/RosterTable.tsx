@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 
 import ReferenceTweet from './ReferenceTweet';
+import TeamDisplay from './TeamDisplay';
 
 type RosterTableChanges = {
   date: string,
@@ -45,10 +46,13 @@ const columns = [
   columnHelper.accessor(rosterChanges => rosterChanges.player.formerTeam.name, {
     header: 'Old Team',
     footer: info => info.column.id,
+    cell: info => <TeamDisplay value={info.getValue()} />
+
   }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.newTeam.name, {
     header: 'New Team',
     footer: info => info.column.id,
+    cell: info => <TeamDisplay value={info.getValue()} />
   }),
   columnHelper.accessor('transactionDetails', {
     header: 'Transaction Details',
