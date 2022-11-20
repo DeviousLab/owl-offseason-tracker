@@ -6,6 +6,8 @@ import {
 } from '@tanstack/react-table'
 import { useState } from 'react';
 
+import ReferenceTweet from './ReferenceTweet';
+
 type RosterTableChanges = {
   date: string,
   player: {
@@ -55,6 +57,7 @@ const columns = [
   columnHelper.accessor('reference', {
     header: 'Reference Tweet',
     footer: info => info.column.id,
+    cell: info => <ReferenceTweet value={info.getValue()} />
   }),
 ]
 
@@ -86,7 +89,7 @@ const RosterTable = ({ rosterChanges }: any) => {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody className=''>
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => (
