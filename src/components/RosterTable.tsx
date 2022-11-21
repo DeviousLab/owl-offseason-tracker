@@ -9,12 +9,14 @@ import { useState } from 'react';
 import ReferenceTweet from './ReferenceTweet';
 import TeamDisplay from './TeamDisplay';
 import PlayerStatus from './PlayerStatus';
+import RoleDisplay from './RoleDisplay';
 
 type RosterTableChanges = {
   date: string,
   player: {
     username: string,
     currentStatus: string,
+    role: string,
     formerTeam: {
       name: string,
     },
@@ -35,12 +37,17 @@ const columns = [
     footer: info => info.column.id,
   }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.username, {
-    header: 'Player Username',
+    header: 'Username',
     cell: info => info.getValue(),
     footer: info => info.column.id,
   }),
+  columnHelper.accessor(rosterChanges => rosterChanges.player.role, {
+    header: 'Role',
+    cell: info => <RoleDisplay value={info.getValue()} />,
+    footer: info => info.column.id,
+  }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.currentStatus, {
-    header: 'Player Status',
+    header: 'Status',
     footer: info => info.column.id,
     cell: info => <PlayerStatus value={info.getValue()} />,
   }),
@@ -48,7 +55,10 @@ const columns = [
     header: 'Old Team',
     footer: info => info.column.id,
     cell: info => <TeamDisplay value={info.getValue()} />
-
+  }),
+  columnHelper.display({
+    id: 'arrow',
+    cell: info => <span>⟶</span>
   }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.newTeam.name, {
     header: 'New Team',
