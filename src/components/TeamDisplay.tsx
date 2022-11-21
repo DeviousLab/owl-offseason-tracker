@@ -18,7 +18,7 @@ const TeamDisplay = ({ value }: Props) => {
     },
   "Dallas Fuel":{
       backgroundColour: '#0072CE',
-      textColour: '#9EA2A2',
+      textColour: '#FFFFFF',
     },
     "Florida Mayhem":{
       backgroundColour: '#CF4691',
@@ -93,7 +93,7 @@ const TeamDisplay = ({ value }: Props) => {
 	return (
 		<>
 					{teamColourProperties[`${value}`] && (
-            <div style={{background: teamColourProperties[value].backgroundColour, color: teamColourProperties[value].textColour}}>
+            <div className="p-2" style={{background: teamColourProperties[value].backgroundColour, color: teamColourProperties[value].textColour}}>
               {value}
             </div>
           )

@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 import ReferenceTweet from './ReferenceTweet';
 import TeamDisplay from './TeamDisplay';
+import PlayerStatus from './PlayerStatus';
 
 type RosterTableChanges = {
   date: string,
@@ -40,8 +41,8 @@ const columns = [
   }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.currentStatus, {
     header: 'Player Status',
-    cell: info => info.getValue(),
     footer: info => info.column.id,
+    cell: info => <PlayerStatus value={info.getValue()} />,
   }),
   columnHelper.accessor(rosterChanges => rosterChanges.player.formerTeam.name, {
     header: 'Old Team',
@@ -75,13 +76,13 @@ const RosterTable = ({ rosterChanges }: any) => {
   })
 
   return (
-    <div className="p-2 flex justify-center align-middle">
-      <table>
+    <div className="p-3 flex justify-center align-middle font-Industry">
+      <table className='text-center'>
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className="text-md font-semibold tracking-wide text-[#E8E6E3] bg-[#272B2B] text-left uppercase border-b border-gray-600">
               {headerGroup.headers.map(header => (
-                <th key={header.id}>
+                <th key={header.id} className='px-4 py-2'>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -93,11 +94,11 @@ const RosterTable = ({ rosterChanges }: any) => {
             </tr>
           ))}
         </thead>
-        <tbody className=''>
+        <tbody>
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td key={cell.id}>
+                <td key={cell.id} className="p-2 border-b">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

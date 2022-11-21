@@ -8,7 +8,7 @@ type Props = {
 const ReferenceTweet = ({ value }: Props) => {
 	return (
 		<>
-					<Link href={value} >
+					<Link href={value} className="flex justify-center">
 						<FaTwitter size={20} />
 					</Link>
 
