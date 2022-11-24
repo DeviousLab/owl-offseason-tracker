@@ -3,10 +3,10 @@ import Head from "next/head"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import TeamCard from "../components/team/TeamCard"
+import PlayerTable from "../components/lft/PlayerTable"
 import { client } from "../lib/client"
 
-const Team = ({ teams }: any) => {
+const FreeAgents = ({ lftPlayers }: any) => {
   return (
     <>
       <Head>
@@ -16,24 +16,25 @@ const Team = ({ teams }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <h1 className="font-Industry font-bold text-black text-center text-3xl mt-6 uppercase">Overwatch League Teams</h1>
-      <div className="my-8 mx-56 grid overflow-hidden grid-cols-4 grid-rows-2 gap-4">
-        {teams.map((team: any) => <TeamCard key={team._id} team={team}/>)}
-      </div>
+      <h1 className="font-Industry font-bold text-black text-center text-3xl mt-6 uppercase">Current Free Agents</h1>
+      <p>
+        This is a list of players and staff that are available to join a team (e.g. Team option declined or existing contract expired). This list is not exhaustive, and is only updated when a player is announced as a free agent.
+      </p>
+      <PlayerTable lftPlayers={lftPlayers} />
       <Footer />
     </>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = '*[_type == "team"]';
-  const teams = await client.fetch(query);
-  console.log()
+  const query = '*[_type == "player" && currentStatus == "lft"]';
+  const lftPlayers = await client.fetch(query);
+  console.log(lftPlayers)
   return {
     props: {
-      teams,
+      lftPlayers,
     }
   }
 }
 
-export default Team
+export default FreeAgents
