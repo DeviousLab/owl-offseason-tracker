@@ -9,9 +9,8 @@ const Header = () => {
 					<span className='ml-3 text-xl font-bold'>OWL OST</span>
 				</Link>
 				<nav className='md:ml-auto flex flex-wrap items-center text-base justify-center '>
-					<Link href='/' className='mr-5 hover:text-gray-900 dark:hover:text-gray-400 cursor-pointer bg-gray-600 py-1 px-2 rounded-md'>TEAMS</Link>
-					<Link href='/' className='mr-5 hover:text-gray-900 dark:hover:text-gray-400 cursor-pointer bg-gray-600 py-1 px-2 rounded-md'>PLAYERS</Link>
-					<Link href='/' className='mr-5 hover:text-gray-900 dark:hover:text-gray-400 cursor-pointer bg-gray-600 py-1 px-2 rounded-md'>FREE AGENTS</Link>
+					<Link href='/teams' className='mr-5 hover:text-gray-900 dark:hover:text-gray-400 cursor-pointer bg-gray-600 py-1 px-2 rounded-md'>TEAMS</Link>
+					<Link href='/lft' className='mr-5 hover:text-gray-900 dark:hover:text-gray-400 cursor-pointer bg-gray-600 py-1 px-2 rounded-md'>FREE AGENTS</Link>
 				</nav>				
 			</div>
 		</header>
