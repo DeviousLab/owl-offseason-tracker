@@ -95,7 +95,7 @@ const TeamCard = ({ team: { image, name, slug } }: any) => {
 
 	return (
 		<div
-			className='w-64 h-64 m-4 transition duration-200 hover:shadow-lg hover:scale-105 cursor-pointer'
+			className='lg:w-64 lg:h-64 w-48 h-48 m-4 transition duration-200 hover:shadow-lg hover:scale-105 cursor-pointer'
 			style={{ background: teamColourProperties[name].backgroundColour }}
 		>
 			<div>
@@ -104,7 +104,7 @@ const TeamCard = ({ team: { image, name, slug } }: any) => {
 					alt={name}
 					height={220}
 					width={220}
-					className='m-auto'
+					className='m-auto lg:w-5/6 lg:h-5/6 w-36 h-36'
 				/>
 			</div>
 			<div>

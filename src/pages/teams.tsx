@@ -16,9 +16,11 @@ const Team = ({ teams }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <h1 className="font-Industry font-bold text-black text-center text-3xl mt-6 uppercase">Overwatch League Teams</h1>
-      <div className="my-8 mx-56 grid overflow-hidden grid-cols-4 grid-rows-2 gap-4">
+      <h1 className="font-Industry font-bold text-black dark:text-white p-4 text-center text-3xl mt-6 uppercase underline decoration-primary">Overwatch League Teams</h1>
+      <div className="my-4 flex justify-center items-center">
+      <div className="grid lg:grid-cols-4 grid-cols-2 grid-rows-2 gap-2">
         {teams.map((team: any) => <TeamCard key={team._id} team={team}/>)}
+      </div>
       </div>
       <Footer />
     </>
