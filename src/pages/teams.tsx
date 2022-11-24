@@ -28,9 +28,8 @@ const Team = ({ teams }: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = '*[_type == "team"]';
+  const query = '*[_type == "team"] | order(name asc)';
   const teams = await client.fetch(query);
-  console.log()
   return {
     props: {
       teams,

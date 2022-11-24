@@ -110,7 +110,6 @@ const columns = [
 const RosterTable = ({ rosterChanges }: any) => {
 	const [data, setData] = useState(() => [...rosterChanges]);
 	const [globalFilter, setGlobalFilter] = useState('');
-	console.log(rosterChanges);
 	const table = useReactTable({
 		data,
 		columns,

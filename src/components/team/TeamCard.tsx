@@ -81,7 +81,7 @@ const TeamCard = ({ team: { image, name, slug } }: any) => {
 		},
 		'Washington Justice': {
 			backgroundColour: '#990034',
-			textColour: '#003768',
+			textColour: '#FFFFFF',
 		},
 		None: {
 			backgroundColour: '#FFFFFF',
