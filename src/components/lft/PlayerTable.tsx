@@ -17,6 +17,7 @@ import { RankingInfo, rankItem } from '@tanstack/match-sorter-utils';
 import ReferenceTweet from '../ReferenceTweet';
 import PlayerPortrait from './PlayerPortrait';
 import RoleDisplay from '../RoleDisplay';
+import ProfileLinks from './ProfileLinks';
 import { DebouncedInput } from '../DebouncedInput';
 
 type PlayerTableDisplay = {
@@ -74,19 +75,18 @@ const columns = [
 	columnHelper.accessor((lftPlayers) => lftPlayers.owlProfile, {
 		header: 'OWL Profile',
 		footer: (info) => info.column.id,
-		cell: (info) => <ReferenceTweet value={info.getValue()} />,
+		cell: (info) => <ProfileLinks value={info.getValue()} />,
 	}),
 	columnHelper.accessor((lftPlayers) => lftPlayers.liquipedia, {
 		header: 'Liquipedia Profile',
 		footer: (info) => info.column.id,
-		cell: (info) => <ReferenceTweet value={info.getValue()} />,
+		cell: (info) => <ProfileLinks value={info.getValue()} />,
 	}),
 ];
 
 const PlayerTable = ({ lftPlayers }: any) => {
 	const [data, setData] = useState(() => [...lftPlayers]);
 	const [globalFilter, setGlobalFilter] = useState('');
-	console.log(lftPlayers);
 	const table = useReactTable({
 		data,
 		columns,
