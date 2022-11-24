@@ -5,9 +5,9 @@ import HeroImage from '../assets/OWHero.webp';
 
 const Hero = () => {
 	return (
-		<section className='text-black bg-gray-100 font-Industry dark:bg-accent-light dark:text-white'>
+		<section className='text-black bg-gray-100 font-Industry dark:bg-[#1f1f1f] dark:text-white'>
 			<Image
-				className='w-full lg:w-2/3 m-auto mb-10 object-cover object-center'
+				className='w-full lg:w-2/3 m-auto mb-10 pt-10 object-cover object-center'
 				alt='hero'
 				src={HeroImage}
 			/>
