@@ -9,7 +9,7 @@ const ReferenceTweet = ({ value }: Props) => {
 	return (
 		<>
 					<Link href={value} className="flex justify-center">
-						<FaTwitter size={20} />
+						<FaTwitter className='text-black dark:text-white' size={20} />
 					</Link>
 
 		</>

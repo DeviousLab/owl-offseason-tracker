@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 
-import HeroImage from '../assets/IBM_OVERWATCH.jpg';
+import HeroImage from '../assets/OWHero.webp';
 
 const Hero = () => {
 	return (
-		<section className='text-black bg-gray-100 font-Industry dark:bg-accent-light dark:text-white'>
+		<section className='text-black bg-gray-100 font-Industry dark:bg-[#1f1f1f] dark:text-white'>
 			<Image
-				className='w-screen h-2/3 mb-10 object-cover object-center rounded'
+				className='w-full lg:w-2/3 m-auto mb-10 pt-10 object-cover object-center'
 				alt='hero'
 				src={HeroImage}
 			/>
@@ -22,7 +22,7 @@ const Hero = () => {
 						agent.
 					</p>
 					<div className='flex justify-center'>
-						<button className='inline-flex shadow-md text-white bg-primary border-0 py-4 px-4 focus:outline-none hover:bg-primary/75 transition ease-in-out duration-300 rounded-xl '>
+						<button className='inline-flex shadow-md text-white bg-primary border-0 py-4 px-4 focus:outline-none hover:bg-primary/75 transition ease-in-out duration-300 rounded-xl cursor-default'>
 							<BsArrowDownCircleFill size={30} />
 						</button>
 					</div>

@@ -110,7 +110,6 @@ const columns = [
 const RosterTable = ({ rosterChanges }: any) => {
 	const [data, setData] = useState(() => [...rosterChanges]);
 	const [globalFilter, setGlobalFilter] = useState('');
-	console.log(rosterChanges);
 	const table = useReactTable({
 		data,
 		columns,
@@ -141,89 +140,94 @@ const RosterTable = ({ rosterChanges }: any) => {
 					placeholder='Search...'
 				/>
 			</div>
-			<div className='h-2 ' />
-			<table className='text-center inline-block'>
-				<thead>
-					{table.getHeaderGroups().map((headerGroup) => (
-						<tr
-							key={headerGroup.id}
-							className='text-md font-semibold tracking-wide text-[#E8E6E3] bg-[#272B2B] text-left uppercase border-b border-gray-600'
-						>
-							{headerGroup.headers.map((header) => {
-								return (
-									<th key={header.id} className='px-4 py-2'>
-										{header.isPlaceholder ? null : (
-											<>
-												<div
-													{...{
-														className: header.column.getCanSort()
-															? 'cursor-pointer select-none'
-															: '',
-														onClick: header.column.getToggleSortingHandler(),
-													}}
-												>
-													{flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-													)}
-													{{
-														asc: ' 🔼',
-														desc: ' 🔽',
-													}[header.column.getIsSorted() as string] ?? null}
-												</div>
-											</>
-										)}
-									</th>
-								);
-							})}
-						</tr>
-					))}
-				</thead>
-				<tbody>
-					{table.getRowModel().rows.map((row) => {
-						return (
-							<tr key={row.id}>
-								{row.getVisibleCells().map((cell) => {
+			<div className='h-2' />
+			<div className='overflow-x-auto'>
+				<table className='text-center inline-block'>
+					<thead>
+						{table.getHeaderGroups().map((headerGroup) => (
+							<tr
+								key={headerGroup.id}
+								className='text-md font-semibold tracking-wide text-[#E8E6E3] bg-[#272B2B] text-left uppercase border-b border-gray-100'
+							>
+								{headerGroup.headers.map((header) => {
 									return (
-										<td key={cell.id} className='p-2 border-b'>
-											{flexRender(
-												cell.column.columnDef.cell,
-												cell.getContext()
+										<th key={header.id} className='px-4 py-2'>
+											{header.isPlaceholder ? null : (
+												<>
+													<div
+														{...{
+															className: header.column.getCanSort()
+																? 'cursor-pointer select-none'
+																: '',
+															onClick: header.column.getToggleSortingHandler(),
+														}}
+													>
+														{flexRender(
+															header.column.columnDef.header,
+															header.getContext()
+														)}
+														{{
+															asc: ' 🔼',
+															desc: ' 🔽',
+														}[header.column.getIsSorted() as string] ?? null}
+													</div>
+												</>
 											)}
-										</td>
+										</th>
 									);
 								})}
 							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+						))}
+					</thead>
+					<tbody>
+						{table.getRowModel().rows.map((row) => {
+							return (
+								<tr key={row.id}>
+									{row.getVisibleCells().map((cell) => {
+										return (
+											<td
+												key={cell.id}
+												className='p-2 border-b border-gray-100 dark:text-gray-900 bg-gray-400'
+											>
+												{flexRender(
+													cell.column.columnDef.cell,
+													cell.getContext()
+												)}
+											</td>
+										);
+									})}
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
 			<div className='h-2' />
-			<div className='inline-block'>
+			<div className='inline-block text-gray-700 dark:text-gray-200'>
 				<div className='flex items-center gap-2'>
 					<button
-						className='border rounded p-1'
+						className='border rounded p-1 border-gray-700 dark:border-gray-200 cursor-pointer'
 						onClick={() => table.setPageIndex(0)}
 						disabled={!table.getCanPreviousPage()}
 					>
 						{'<<'}
 					</button>
 					<button
-						className='border rounded p-1'
+						className='border rounded p-1 border-gray-700 dark:border-gray-200 cursor-pointer'
 						onClick={() => table.previousPage()}
 						disabled={!table.getCanPreviousPage()}
 					>
 						{'<'}
 					</button>
 					<button
-						className='border rounded p-1'
+						className='border rounded p-1 border-gray-700 dark:border-gray-200 cursor-pointer'
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
 					>
 						{'>'}
 					</button>
 					<button
-						className='border rounded p-1'
+						className='border rounded p-1 border-gray-700 dark:border-gray-200 cursor-pointer'
 						onClick={() => table.setPageIndex(table.getPageCount() - 1)}
 						disabled={!table.getCanNextPage()}
 					>
@@ -245,7 +249,7 @@ const RosterTable = ({ rosterChanges }: any) => {
 								const page = e.target.value ? Number(e.target.value) - 1 : 0;
 								table.setPageIndex(page);
 							}}
-							className='border p-1 rounded w-16'
+							className='border p-1 rounded w-16 dark:text-white bg-gray-300 dark:bg-[#6B6B6B]'
 						/>
 					</span>
 					<select
@@ -253,6 +257,7 @@ const RosterTable = ({ rosterChanges }: any) => {
 						onChange={(e) => {
 							table.setPageSize(Number(e.target.value));
 						}}
+						className='dark:text-white border bg-gray-300 dark:bg-[#6B6B6B] py-2 rounded'
 					>
 						{[10, 20, 30, 40, 50].map((pageSize) => (
 							<option key={pageSize} value={pageSize}>
@@ -262,7 +267,9 @@ const RosterTable = ({ rosterChanges }: any) => {
 					</select>
 				</div>
 			</div>
-			<div>{table.getPrePaginationRowModel().rows.length} Rows</div>
+			<div className='text-gray-700 dark:text-gray-200'>
+				{table.getPrePaginationRowModel().rows.length} Rows
+			</div>
 		</div>
 	);
 };
