@@ -141,63 +141,68 @@ const RosterTable = ({ rosterChanges }: any) => {
 					placeholder='Search...'
 				/>
 			</div>
-			<div className='h-2 ' />
-			<table className='text-center inline-block'>
-				<thead>
-					{table.getHeaderGroups().map((headerGroup) => (
-						<tr
-							key={headerGroup.id}
-							className='text-md font-semibold tracking-wide text-[#E8E6E3] bg-[#272B2B] text-left uppercase border-b border-gray-100'
-						>
-							{headerGroup.headers.map((header) => {
-								return (
-									<th key={header.id} className='px-4 py-2'>
-										{header.isPlaceholder ? null : (
-											<>
-												<div
-													{...{
-														className: header.column.getCanSort()
-															? 'cursor-pointer select-none'
-															: '',
-														onClick: header.column.getToggleSortingHandler(),
-													}}
-												>
-													{flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-													)}
-													{{
-														asc: ' 🔼',
-														desc: ' 🔽',
-													}[header.column.getIsSorted() as string] ?? null}
-												</div>
-											</>
-										)}
-									</th>
-								);
-							})}
-						</tr>
-					))}
-				</thead>
-				<tbody>
-					{table.getRowModel().rows.map((row) => {
-						return (
-							<tr key={row.id}>
-								{row.getVisibleCells().map((cell) => {
+			<div className='h-2' />
+			<div className='overflow-x-auto'>
+				<table className='text-center inline-block'>
+					<thead>
+						{table.getHeaderGroups().map((headerGroup) => (
+							<tr
+								key={headerGroup.id}
+								className='text-md font-semibold tracking-wide text-[#E8E6E3] bg-[#272B2B] text-left uppercase border-b border-gray-100'
+							>
+								{headerGroup.headers.map((header) => {
 									return (
-										<td key={cell.id} className='p-2 border-b border-gray-100 dark:text-gray-900 bg-gray-400'>
-											{flexRender(
-												cell.column.columnDef.cell,
-												cell.getContext()
+										<th key={header.id} className='px-4 py-2'>
+											{header.isPlaceholder ? null : (
+												<>
+													<div
+														{...{
+															className: header.column.getCanSort()
+																? 'cursor-pointer select-none'
+																: '',
+															onClick: header.column.getToggleSortingHandler(),
+														}}
+													>
+														{flexRender(
+															header.column.columnDef.header,
+															header.getContext()
+														)}
+														{{
+															asc: ' 🔼',
+															desc: ' 🔽',
+														}[header.column.getIsSorted() as string] ?? null}
+													</div>
+												</>
 											)}
-										</td>
+										</th>
 									);
 								})}
 							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+						))}
+					</thead>
+					<tbody>
+						{table.getRowModel().rows.map((row) => {
+							return (
+								<tr key={row.id}>
+									{row.getVisibleCells().map((cell) => {
+										return (
+											<td
+												key={cell.id}
+												className='p-2 border-b border-gray-100 dark:text-gray-900 bg-gray-400'
+											>
+												{flexRender(
+													cell.column.columnDef.cell,
+													cell.getContext()
+												)}
+											</td>
+										);
+									})}
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
 			<div className='h-2' />
 			<div className='inline-block text-gray-700 dark:text-gray-200'>
 				<div className='flex items-center gap-2'>
@@ -253,7 +258,7 @@ const RosterTable = ({ rosterChanges }: any) => {
 						onChange={(e) => {
 							table.setPageSize(Number(e.target.value));
 						}}
-						className="dark:text-white border bg-gray-300 dark:bg-[#6B6B6B] py-2 rounded"
+						className='dark:text-white border bg-gray-300 dark:bg-[#6B6B6B] py-2 rounded'
 					>
 						{[10, 20, 30, 40, 50].map((pageSize) => (
 							<option key={pageSize} value={pageSize}>
@@ -263,7 +268,9 @@ const RosterTable = ({ rosterChanges }: any) => {
 					</select>
 				</div>
 			</div>
-			<div className='text-gray-700 dark:text-gray-200'>{table.getPrePaginationRowModel().rows.length} Rows</div>
+			<div className='text-gray-700 dark:text-gray-200'>
+				{table.getPrePaginationRowModel().rows.length} Rows
+			</div>
 		</div>
 	);
 };
