@@ -57,14 +57,8 @@ export default {
     {
       name: 'role',
       title: 'Role',
+      description: 'The role of the player',
       type: 'string',
-      options: {
-        list: [
-          { title: 'Tank', value: 'tank' },
-          { title: 'Damage', value: 'damage' },
-          { title: 'Support', value: 'support' },
-        ]
-      }
     },
     {
       name: 'formerTeam',
