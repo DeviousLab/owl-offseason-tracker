@@ -3,7 +3,7 @@ import { FaReddit, FaGlobe, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
 	return (
-		<footer aria-label='Site Footer' className='text-center text-white bg-accent-light dark:bg-white dark:text-accent'>
+		<footer aria-label='Site Footer' className='text-center text-white bg-black dark:bg-white dark:text-accent'>
 			<div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8'>
 				<div className='mx-auto max-w-3xl space-y-6'>
 					<div className='flex justify-center gap-6'>
@@ -38,7 +38,7 @@ const Footer = () => {
 						</Link>
 					</div>
 
-					<p className='mx-auto max-w-lg text-xs text-gray-500'>
+					<p className='mx-auto max-w-lg text-xs text-gray-100 dark:text-gray-500'>
 						Overwatch, the Overwatch League and the Overwatch and the Overwatch
 						League logos are the exclusive property of OWL and their respective owners.
 						<span className='mt-4 block'> &copy; 2022 
