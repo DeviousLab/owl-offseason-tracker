@@ -6,7 +6,7 @@ const TeamDisplay = ({ value }: Props) => {
 	const playerStatusProperties: any = {
 		active: {
 			backgroundColour: '#A7F3D0;',
-			textColour: '#6B7280',
+			textColour: '#16a34a',
 		},
 		inactive: {
 			backgroundColour: '#FECACA',
