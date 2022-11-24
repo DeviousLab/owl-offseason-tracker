@@ -17,7 +17,7 @@ const FreeAgents = ({ lftPlayers }: any) => {
       </Head>
       <Header />
       <h1 className="font-Industry font-bold text-black text-center text-3xl mt-6 uppercase">Current Free Agents</h1>
-      <p>
+      <p className="font-Industry text-justify text-black w-[65rem] text-xl m-auto">
         This is a list of players and staff that are available to join a team (e.g. Team option declined or existing contract expired). This list is not exhaustive, and is only updated when a player is announced as a free agent.
       </p>
       <PlayerTable lftPlayers={lftPlayers} />
@@ -29,7 +29,6 @@ const FreeAgents = ({ lftPlayers }: any) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const query = '*[_type == "player" && currentStatus == "lft"]';
   const lftPlayers = await client.fetch(query);
-  console.log(lftPlayers)
   return {
     props: {
       lftPlayers,

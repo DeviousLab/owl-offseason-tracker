@@ -15,12 +15,12 @@ import { useState } from 'react';
 import { RankingInfo, rankItem } from '@tanstack/match-sorter-utils';
 
 import ReferenceTweet from '../ReferenceTweet';
-import PlayerStatus from '../PlayerStatus';
+import PlayerPortrait from './PlayerPortrait';
 import RoleDisplay from '../RoleDisplay';
 import { DebouncedInput } from '../DebouncedInput';
 
 type PlayerTableDisplay = {
-	date: string;
+	image: any;
 	username: string,
   name: string,
   role: string,
@@ -50,9 +50,10 @@ const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
 const columnHelper = createColumnHelper<PlayerTableDisplay>();
 
 const columns = [
-	columnHelper.accessor((lftPlayers) => lftPlayers.date, {
-		header: 'i',
-		cell: (info) => info.getValue(),
+	columnHelper.accessor((lftPlayers) => lftPlayers.image, {
+		id: 'Image',
+    header: '',
+		cell: (info) => <PlayerPortrait value={info.getValue()} />,
 		footer: (info) => info.column.id,
 	}),
 	columnHelper.accessor((lftPlayers) => lftPlayers.username, {

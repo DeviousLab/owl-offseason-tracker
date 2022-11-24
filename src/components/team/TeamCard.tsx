@@ -1,10 +1,6 @@
 import Image from 'next/image';
 import { urlFor } from '../../lib/client';
 
-type Props = {
-	teams: any;
-};
-
 const TeamCard = ({ team: { image, name, slug } }: any) => {
 	const teamColourProperties: any = {
 		'Atlanta Reign': {
