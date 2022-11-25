@@ -13,7 +13,7 @@ type Props = {
 const ProfileLinks = ({ value }: Props) => {
 	if (regexp.test(value)) {
 		return (
-			<Link href={value} className='flex justify-center'>
+			<Link href={value} className='flex justify-center mx-2'>
 				<Image
 					src={LiquipediaProfile}
 					alt='Liquipedia Profile'
@@ -24,7 +24,7 @@ const ProfileLinks = ({ value }: Props) => {
 		);
 	}
 	return (
-		<Link href={value} className='flex justify-center'>
+		<Link href={value} className='flex justify-center mx-2'>
 			<Image src={OWLProfile} alt='OWL Profile' width={40} height={40} />
 		</Link>
 	);
