@@ -18,13 +18,13 @@ const ProfileCard = ({ members }: any) => {
 								src={urlFor(members[key].image).url()}
 							/>
 							<div className='flex-grow sm:pl-8'>
-								<h2 className='font-medium text-lg text-gray-900 uppercase'>
+								<h2 className='text-lg font-bold text-gray-900 uppercase'>
 									{members[key].username}
 								</h2>
 								<h3 className='text-gray-500 mb-3'>{members[key].name}</h3>
-								<p className='mb-4 bg-black text-white w-20'>
+								<div className='mb-4 bg-black text-white w-fit'>
 									<TeamRoleDisplay value={members[key].role} />
-								</p>
+								</div>
 								<span className='inline-flex'>
 									{members[key].role === ('Tank' || 'Damage' || 'Support') ? (
 										<ProfileLinks value={members[key]?.owlProfile} />
