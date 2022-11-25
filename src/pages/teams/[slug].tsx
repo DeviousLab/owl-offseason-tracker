@@ -14,7 +14,14 @@ type Slug = {
 };
 
 const TeamDetails: NextPage = ({ teamData, playersData, staffData }: any) => {
-	const { name, background } = teamData;
+	const { name, background, slug } = teamData;
+	if (name === 'None') {
+		return (
+			<div>
+				<h1>Nothing to see here bozo</h1>
+			</div>
+		);
+	}
 	return (
     <>
     <Header />
@@ -34,7 +41,7 @@ const TeamDetails: NextPage = ({ teamData, playersData, staffData }: any) => {
 				Players
 			</h3>
 			<div className='flex flex-wrap -m-4 mx-auto px-20'>
-        {playersData.map((player: any) => <ProfileCard members={playersData} key={player._id}/>)}
+        <ProfileCard members={playersData} />
 			</div>
       <hr className="my-4 mx-auto w-48 h-1 rounded border-0 md:my-10"
       style={{ background: teamColourProperties[name].textColour }}
