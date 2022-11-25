@@ -59,18 +59,19 @@ export default {
       title: 'Role',
       description: 'The role of the player',
       type: 'string',
+      options: {
+        list: [
+          { title: 'Tank', value: 'Tank' },
+          { title: 'Damage', value: 'Damage' },
+          { title: 'Support', value: 'Support' },
+          { title: 'Flex', value: 'Flex' },
+        ]
+      }
     },
     {
-      name: 'formerTeam',
-      title: 'Former Team',
-      description: 'The former team of the player',
-      type: 'reference',
-      to: [{ type: 'team' }],
-    },
-    {
-      name: 'newTeam',
-      title: 'New Team',
-      description: 'The new team of the player',
+      name: 'team',
+      title: 'Current Team',
+      description: 'The current team of the player',
       type: 'reference',
       to: [{ type: 'team' }],
     },
