@@ -26,9 +26,19 @@ const ProfileCard = ({ members }: any) => {
 									<TeamRoleDisplay value={members[key].role} />
 								</div>
 								<span className='inline-flex'>
-									{members[key].role === ('Tank' || 'Damage' || 'Support') ? (
+									{members[key].role === 'Tank' ? (
 										<ProfileLinks value={members[key]?.owlProfile} />
-									) : (
+									)
+										: members[key].role === 'Support' ? (
+										<ProfileLinks value={members[key]?.owlProfile} />
+										)
+										: members[key].role === 'Damage' ? (
+										<ProfileLinks value={members[key]?.owlProfile} />
+										)
+										: members[key].role === 'Flex' ? (
+										<ProfileLinks value={members[key]?.owlProfile} />
+										)
+									: (
 										''
 									)}
 									<ProfileLinks value={members[key]?.liquipedia} />
