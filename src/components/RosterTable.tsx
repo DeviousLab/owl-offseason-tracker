@@ -26,13 +26,13 @@ type RosterTableChanges = {
 		username: string;
 		currentStatus: string;
 		role: string;
-		formerTeam: {
-			name: string;
-		};
-		newTeam: {
-			name: string;
-		};
 	};
+	oldTeam: {
+		name: string;
+	}
+	newTeam: {
+		name: string;
+	}
 	transactionDetails: string;
 	reference: string;
 };
@@ -80,7 +80,7 @@ const columns = [
 		cell: (info) => <PlayerStatus value={info.getValue()} />,
 	}),
 	columnHelper.accessor(
-		(rosterChanges) => rosterChanges.player.formerTeam.name,
+		(rosterChanges) => rosterChanges.oldTeam.name,
 		{
 			header: 'Old Team',
 			footer: (info) => info.column.id,
@@ -91,7 +91,7 @@ const columns = [
 		id: 'arrow',
 		cell: (info) => <span>⟶</span>,
 	}),
-	columnHelper.accessor((rosterChanges) => rosterChanges.player.newTeam.name, {
+	columnHelper.accessor((rosterChanges) => rosterChanges.newTeam.name, {
 		header: 'New Team',
 		footer: (info) => info.column.id,
 		cell: (info) => <TeamDisplay value={info.getValue()} />,
@@ -110,6 +110,7 @@ const columns = [
 const RosterTable = ({ rosterChanges }: any) => {
 	const [data, setData] = useState(() => [...rosterChanges]);
 	const [globalFilter, setGlobalFilter] = useState('');
+	console.log(rosterChanges)
 	const table = useReactTable({
 		data,
 		columns,
