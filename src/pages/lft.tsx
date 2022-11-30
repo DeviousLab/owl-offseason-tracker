@@ -10,7 +10,7 @@ const FreeAgents = ({ lftPlayers }: any) => {
   return (
     <>
       <Head>
-        <title>OWL Off-Season Tracker | Teams</title>
+        <title>OWL Off-Season Tracker | Free Agents</title>
         <meta name="description" content="Off-season tracker for roster changes in the teams within the Overwatch League" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/favicon.ico" />
