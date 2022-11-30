@@ -1,8 +1,6 @@
 import TeamRoleDisplay from '../team/TeamRoleDisplay';
 
-type Props = {};
-
-const TableRows = (props: Props) => {
+const TableRows = () => {
 	return (
 		<div
 			id='board'
@@ -20,12 +18,12 @@ const TableRows = (props: Props) => {
 			</div>
 			<div className='flex w-full h-28 bg-accent-light'>
 				<div className='flex justify-center items-center h-full w-1/5 bg-secondary uppercase font-bold text-xl'>
-        <TeamRoleDisplay value='Support' />
+					<TeamRoleDisplay value='Support' />
 				</div>
 			</div>
 			<div className='flex w-full h-28 bg-accent-light'>
 				<div className='flex justify-center items-center h-full w-1/5 bg-secondary uppercase font-bold text-xl'>
-        <TeamRoleDisplay value='Staff' />
+					<TeamRoleDisplay value='Staff' />
 				</div>
 			</div>
 		</div>
