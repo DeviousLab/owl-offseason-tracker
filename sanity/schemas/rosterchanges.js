@@ -13,7 +13,10 @@ export default {
       title: 'Player',
       description: 'The player who has changed teams',
       type: 'reference',
-      to: [{ type: 'player' }],
+      to: [
+        { type: 'player' },
+        { type: 'staff' },
+      ],
       validation: (Rule) => Rule.required(),
     },
     {
