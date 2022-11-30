@@ -50,6 +50,7 @@ export default {
           { title: 'Inactive', value: 'inactive' },
           { title: 'Retired', value: 'retired' },
           { title: 'Looking For Team', value: 'lft' },
+          { title: 'Free Agent', value: 'fa' },
         ]
       }
     },
@@ -60,16 +61,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'formerTeam',
-      title: 'Former Team',
-      description: 'The former team of the staff member',
-      type: 'reference',
-      to: [{ type: 'team' }],
-    },
-    {
-      name: 'newTeam',
-      title: 'New Team',
-      description: 'The new team of the staff member',
+      name: 'currentTeam',
+      title: 'Current Team',
+      description: 'The current team of the staff member',
       type: 'reference',
       to: [{ type: 'team' }],
     },

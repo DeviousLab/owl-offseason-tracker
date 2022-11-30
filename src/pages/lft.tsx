@@ -27,7 +27,7 @@ const FreeAgents = ({ lftPlayers }: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = '*[_type == "player" && currentStatus == "fa"] | order(username asc)';
+  const query = '*[_type in ["player", "staff"] && currentStatus == "fa"] | order(lower(username) asc)';
   const lftPlayers = await client.fetch(query);
   return {
     props: {

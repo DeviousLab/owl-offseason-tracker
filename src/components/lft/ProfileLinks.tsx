@@ -23,6 +23,10 @@ const ProfileLinks = ({ value }: Props) => {
 			</Link>
 		);
 	}
+	if (value === undefined) {
+		return (
+			<></>)
+	}
 	return (
 		<Link href={value} className='flex justify-center mx-2'>
 			<Image src={OWLProfile} alt='OWL Profile' width={40} height={40} />
