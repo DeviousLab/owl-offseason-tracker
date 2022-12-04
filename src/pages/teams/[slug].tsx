@@ -68,9 +68,7 @@ const TeamDetails: NextPage = ({ teamData, playersData, staffData }: any) => {
 					Staff
 				</h3>
 				<div className='flex flex-wrap -m-4 mx-auto px-20'>
-					{staffData.map((staff: any) => (
-						<ProfileCard members={staffData} key={staff._id} />
-					))}
+						<ProfileCard members={staffData}  />
 				</div>
 			</div>
 			<Footer />
