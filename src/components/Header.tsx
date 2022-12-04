@@ -11,6 +11,7 @@ const Header = () => {
 				<nav className='md:ml-auto flex flex-wrap items-center text-base justify-center '>
 					<Link href='/teams' className='mr-5 text-gray-900 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer bg-gray-300 dark:bg-gray-600 py-1 px-2 rounded-md'>TEAMS</Link>
 					<Link href='/lft' className='mr-5 text-gray-900 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer bg-gray-300 dark:bg-gray-600 py-1 px-2 rounded-md'>FREE AGENTS</Link>
+					<Link href='/builder' className='mr-5 text-gray-900 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer bg-gray-300 dark:bg-gray-600 py-1 px-2 rounded-md'>TEAM BUILDER</Link>
 				</nav>				
 			</div>
 		</header>
