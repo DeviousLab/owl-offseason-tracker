@@ -7,14 +7,8 @@ import Footer from '../components/Footer'
 import { client } from '../lib/client'
 import TableRows from '../components/builder/TableRows'
 import PlayerBank from '../components/builder/PlayerBank'
-import PlayerBankCard from '../components/builder/PlayerBankCard'
-import { DragDropContext } from 'react-beautiful-dnd'
 
 const TeamBuilder: NextPage = ({ freeAgents }: any) => {
-  const handleDragEnd = (result: any) => {
-    const { destination, source, draggableId } = result
-
-  }
   return (
     <>
       <Head>
@@ -28,10 +22,8 @@ const TeamBuilder: NextPage = ({ freeAgents }: any) => {
       <p className="font-Industry text-justify py-4 text-black lg:w-[65rem] w-full text-xl lg:m-auto p-6 dark:text-white">
         Build your own dream OWL team with all the free agents available! Drag and drop players into the role slots to see how your team would look.
       </p>
-      <DragDropContext onDragEnd={() => {}}>
       <TableRows />
       <PlayerBank freeAgents={freeAgents} />
-      </DragDropContext>
       <Footer />
     </>
   )

@@ -1,5 +1,4 @@
 import PlayerBankCard from "./PlayerBankCard"
-import { Draggable } from "react-beautiful-dnd"
 
 const PlayerBank = ({ freeAgents }: any) => {
   return (
