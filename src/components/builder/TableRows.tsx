@@ -1,13 +1,38 @@
-import TeamRoleDisplay from '../team/TeamRoleDisplay';
+import RowHeading from "./RowHeading";
+import { useState } from "react";
+import { Droppable } from "@hello-pangea/dnd";
+import TestItem from "./PlayerItem";
 
-const TableRows = ({ titles }: { titles: string }) => {
-	return (
-			<div className='flex w-full h-28 bg-accent-light'>
-				<div className='flex justify-center items-center h-full w-1/5 bg-secondary uppercase font-bold text-xl'>
-					<TeamRoleDisplay value={titles} />
-				</div>
-			</div>
-	);
-};
+function TableRow(props) {
+  const { letter, items, itemMap, row } = props;
 
-export default TableRows;
+  return (
+    <div className="">
+      {letter && <RowHeading letter={letter} />}
+      <Droppable droppableId={row} direction="horizontal">
+        {(provided, snapshot) => (
+          <div
+            className="grid grid-cols-10 gap-2"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {items.map((item, index) => {
+              return (
+                <TestItem
+                  item={item}
+                  itemMap={itemMap}
+                  index={index}
+                  key={index}
+                />
+              );
+            })}
+
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </div>
+  );
+}
+
+export default TableRow;

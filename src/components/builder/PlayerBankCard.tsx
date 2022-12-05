@@ -1,20 +1,20 @@
 import PlayerPortrait from '../lft/PlayerPortrait';
 
-type Props = {
-	freeAgents: {
-    _id: string;
+type PlayerBankCardProps = {
+	player: {
+    id: string;
 		image: string;
 		username: string;
 	};
 };
 
-const PlayerBankCard = ({ freeAgents }: Props) => {
+const PlayerBankCard = ({ player }: PlayerBankCardProps) => {
 	return (
-		<div className='bg-[#2c2c2c]' id={freeAgents._id} draggable>
+		<div className='bg-[#2c2c2c] max-w-min' id={player.id} >
 			<div className='m-4'>
-				<PlayerPortrait value={freeAgents.image} />
+				<PlayerPortrait value={player.image} />
 			</div>
-			<p className='text-center'>{freeAgents.username}</p>
+			<p className='text-center'>{player.username}</p>
 		</div>
 	);
 };

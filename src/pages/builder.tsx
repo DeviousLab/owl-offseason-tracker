@@ -1,49 +1,56 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
-import { useState } from 'react';
+import CreateRosterContainer from "../components/builder/RosterBuilder";
+import { useEffect, useState } from "react";
+import initialData from "../initialData";
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { client } from '../lib/client';
-import TableRows from '../components/builder/TableRows';
-import PlayerBank from '../components/builder/PlayerBank';
-import PlayerBankCard from '../components/builder/PlayerBankCard';
 
-const tableRows = [
-	{
-		id: 'row-1',
-		title: 'Tank',
-		itemIds: [],
-	},
-	{
-		id: 'row-2',
-		title: 'Damage',
-		itemIds: [],
-	},
-	{
-		id: 'row-3',
-		title: 'Support',
-		itemIds: [],
-	},
-	{
-		id: 'row-4',
-		title: 'Staff',
-		itemIds: [],
-	},
-];
-
-const TeamBuilder: NextPage = ({ freeAgents }: any) => {
+function TeamBuilder({ freeAgents }: any) {
   const [players, setPlayers] = useState(freeAgents);
+  const [appState, setAppState] = useState(initialData);
 
-  function handleOnDragEnd(result) {
-    if(!result.destination) return;
-    const items = Array.from(players);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    setPlayers(items);
-  }
+  const addMultipleItems = (amount: number) => {
+    let newItems = {};
+    let newItemRow: any[] = [];
+    for (let i = 0; i < amount; i++) {
+      const itemName = `${players[i].username}`;
+      const newItem = {
+        [itemName]: {
+          id: itemName,
+          username: players[i].username,
+          image: players[i].image,
+        },
+      };
+      newItemRow = [...newItemRow, itemName];
+      newItems = { ...newItems, ...newItem };
+    }
+    setAppState((prev) => ({
+      ...prev,
+      newDraft: {
+        ...prev.newDraft,
+        items: { ...newItems, ...prev.newDraft.items },
+        rows: {
+          ...prev.newDraft.rows,
+          "row-tray": {
+            ...prev.newDraft.rows["row-tray"],
+            itemIds: [
+              ...prev.newDraft.rows["row-tray"].itemIds,
+              ...newItemRow,
+            ],
+          },
+        },
+      },
+    }));
+  };
+
+  useEffect(() => {
+    addMultipleItems(freeAgents.length);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [freeAgents.length]);
+  
 	return (
 		<>
 			<Head>
@@ -63,62 +70,11 @@ const TeamBuilder: NextPage = ({ freeAgents }: any) => {
 				Build your own dream OWL team with all the free agents available! Drag
 				and drop players into the role slots to see how your team would look.
 			</p>
-			<DragDropContext onDragEnd={() => {}}>
-				<div
-					id='board'
-					className='m-auto flex flex-col items-center justify-evenly p-3 w-[90vh] h-[60vh] bg-[#2c2c2c] rounded-md font-Industry'
-				>
-					{tableRows.map((tableRow: any) => (
-						<Droppable droppableId={tableRow.id} key={tableRow.id}>
-							{(provided) => (
-								<div
-									className='w-full'
-									{...provided.droppableProps}
-									ref={provided.innerRef}
-								>
-									<TableRows titles={tableRow.title} key={tableRow.id} />
-									{provided.placeholder}
-								</div>
-							)}
-						</Droppable>
-					))}
-				</div>
-				<PlayerBank>
-					<Droppable droppableId='playerBank'>
-						{(provided) => (
-							<div
-								className='grid lg:grid-cols-10 grid-cols-2 gap-2 p-1 w-[80vw] h-[30vh] bg-accent-light m-auto overflow-auto'
-								{...provided.droppableProps}
-								ref={provided.innerRef}
-							>
-								{players.map((freeAgent: any, index: number) => (
-									<Draggable
-										draggableId={`${freeAgent._id}`}
-										key={freeAgent._id}
-										index={index}
-									>
-										{(provided) => (
-											<div
-												className='w-full'
-												{...provided.draggableProps}
-												ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-											>
-												<PlayerBankCard
-													freeAgents={freeAgent}
-													key={freeAgent._id}
-												/>
-											</div>
-										)}
-									</Draggable>
-								))}
-								{provided.placeholder}
-							</div>
-						)}
-					</Droppable>
-				</PlayerBank>
-			</DragDropContext>
-			<Footer />
+      <CreateRosterContainer
+        appState={appState}
+        setAppState={setAppState}
+      ></CreateRosterContainer>
+      <Footer />
 		</>
 	);
 };
