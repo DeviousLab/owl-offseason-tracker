@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^16.2.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@tanstack/match-sorter-utils": "^8.7.0",
@@ -20,8 +21,6 @@
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "react": "18.2.0",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0"
   },
