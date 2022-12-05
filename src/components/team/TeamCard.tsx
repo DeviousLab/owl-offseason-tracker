@@ -97,7 +97,7 @@ const TeamCard = ({ team: { image, name, slug: { current } } }: any) => {
 
 	return (
 		<Link href={`/teams/${current}`}
-			className='lg:w-64 lg:h-64 w-48 h-48 m-4 transition duration-200 hover:shadow-lg hover:scale-105 cursor-pointer'
+			className='lg:w-64 lg:h-64 md:w-48 md:h-48 w-40 h-40 m-4 transition duration-200 hover:shadow-lg hover:scale-105 cursor-pointer'
 			style={{ background: teamColourProperties[name].backgroundColour }}
 		>
 			<div>
@@ -106,7 +106,7 @@ const TeamCard = ({ team: { image, name, slug: { current } } }: any) => {
 					alt={name}
 					height={220}
 					width={220}
-					className='m-auto lg:w-5/6 lg:h-5/6 w-36 h-36'
+					className='m-auto lg:w-5/6 lg:h-5/6 md:w-36 md:h-36 h-24 w-24'
 				/>
 			</div>
 			<div>

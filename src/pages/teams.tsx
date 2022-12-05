@@ -18,7 +18,7 @@ const Team = ({ teams }: any) => {
       <Header />
       <h1 className="font-Industry font-bold text-black dark:text-white p-4 text-center text-3xl mt-6 uppercase underline decoration-primary">Overwatch League Teams</h1>
       <div className="my-4 flex justify-center items-center">
-      <div className="grid lg:grid-cols-4 grid-cols-2 grid-rows-2 gap-2">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-2 gap-2">
         {teams.map((team: any) => <TeamCard key={team._id} team={team}/>)}
       </div>
       </div>
