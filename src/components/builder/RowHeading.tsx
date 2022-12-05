@@ -2,7 +2,7 @@ import TeamRoleDisplay from "../team/TeamRoleDisplay";
 
 function RowHeading({ letter }) {
   return (
-				<div className='flex justify-center items-center h-28 bg-secondary uppercase font-bold text-xl'>
+				<div className='flex justify-center items-center w-48 h-32 bg-secondary uppercase font-bold md:text-xl text-md'>
 					<TeamRoleDisplay value={letter} />
 				</div>
   );

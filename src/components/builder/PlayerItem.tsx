@@ -12,6 +12,7 @@ function PlayerItem(props) {
 		>
 			{(provided) => (
 				<div
+					className="flex flex-col items-center justify-center mx-1"
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
