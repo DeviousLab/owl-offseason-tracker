@@ -11,7 +11,7 @@ function TableRow(props) {
       <Droppable droppableId={row} direction="horizontal">
         {(provided, snapshot) => (
           <div
-            className={row === "row-tray" ? "grid grid-cols-3 lg:grid-cols-10 2xl:grid-cols-12 gap-2 m-auto min-w-[85%] bg-gray-400 dark:bg-accent-light p-2 rounded-md h-64 overflow-auto" : "flex flex-wrap bg-gray-400 dark:bg-accent-light w-full h-32 m-auto"}
+            className={row === "row-tray" ? "flex flex-wrap m-auto min-w-[85%] bg-gray-400 dark:bg-accent-light p-2 rounded-md h-64 overflow-y-auto" : "flex flex-wrap bg-gray-400 dark:bg-accent-light w-full h-32 m-auto"}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
