@@ -10,7 +10,7 @@ type PlayerBankCardProps = {
 
 const PlayerBankCard = ({ player }: PlayerBankCardProps) => {
 	return (
-		<div className='bg-gray-600 dark:bg-[#2c2c2c] max-w-min h-32 m-1' id={player.id} >
+		<div className='bg-gray-600 dark:bg-[#2c2c2c] max-w-min h-32' id={player.id} >
 			<div className='m-4'>
 				<PlayerPortrait value={player.image} />
 			</div>
