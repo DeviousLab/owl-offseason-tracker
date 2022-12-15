@@ -52,8 +52,8 @@ export const teamColourProperties: any = {
 		backgroundColour: '#171C38',
 		textColour: '#0F57EA',
 	},
-	'Paris Eternal': {
-		backgroundColour: '#303D56',
+	'Vegas Eternal': {
+		backgroundColour: '#000000',
 		textColour: '#FFAA1D',
 	},
 	'Philadelphia Fusion': {
