@@ -56,8 +56,8 @@ export const teamColourProperties: any = {
 		backgroundColour: '#000000',
 		textColour: '#FFAA1D',
 	},
-	'Philadelphia Fusion': {
-		backgroundColour: '#000000',
+	'Seoul Infernal': {
+		backgroundColour: '#E2012D',
 		textColour: '#DCDCDC',
 	},
 	'San Francisco Shock': {

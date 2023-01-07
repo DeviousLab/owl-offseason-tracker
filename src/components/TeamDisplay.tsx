@@ -56,8 +56,8 @@ const TeamDisplay = ({ value }: Props) => {
 			backgroundColour: '#000000',
 			textColour: '#FFAA1D',
 		},
-		'Philadelphia Fusion': {
-			backgroundColour: '#F99E29',
+		'Seoul Infernal': {
+			backgroundColour: '#E2012D',
 			textColour: '#DCDCDC',
 		},
 		'San Francisco Shock': {
